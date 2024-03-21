@@ -7,8 +7,6 @@
 </script>
 
 
-<p>Login Page</p>
-
 <div class="auth-page">
 	<div class="container page">
 		<div class="row">

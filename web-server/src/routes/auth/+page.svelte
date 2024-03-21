@@ -1,0 +1,1 @@
+<p>Auth with Spotify</p>
