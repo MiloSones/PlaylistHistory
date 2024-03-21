@@ -1,0 +1,17 @@
+.favicon {
+    fill: #000000; /* Default to black */
+  }
+  
+  /* Styles for light color scheme */
+  @media (prefers-color-scheme: light) {
+    .favicon {
+      fill: #000000; /* Black for light themes */
+    }
+  }
+  
+  /* Styles for dark color scheme */
+  @media (prefers-color-scheme: dark) {
+    .favicon {
+      fill: #ffffff; /* White for dark themes */
+    }
+  }
