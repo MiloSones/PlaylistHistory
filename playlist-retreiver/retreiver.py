@@ -1,12 +1,16 @@
 import sqlite3
 import base64
 import requests
-import json
+import os
 from datetime import datetime
+from dotenv import load_dotenv
 
-client_id = '2ec598a971664ba886f5b3cb2010fca7'
-client_secret = '14429506ac904d05a35855469b9fd3f8'
 
+load_dotenv()
+
+
+client_id = os.getenv("client_id")
+client_secret = os.getenv("client_secret")
 
 auth_string = f"{client_id}:{client_secret}"
 auth_bytes = auth_string.encode("utf-8")
