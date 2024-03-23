@@ -1,5 +1,5 @@
 import { JWT_ACCESS_SECRET } from '$env/static/private'
-import { db } from 'better-sqlite3'
+import { db } from '$lib/db.js'
 
 export const handle = async ({event, resolve}) => {
     const authCoookie = event.cookies.get('AuthorizationToken');
