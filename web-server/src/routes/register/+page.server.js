@@ -1,14 +1,13 @@
 import { createUser } from '$lib/user.js';
 import { setAuthToken } from '$lib/helpers.js';
+import { db } from '$lib/db.js'
 import { redirect } from '@sveltejs/kit';
 
 export const actions = {
-    register: async ({cookies, request}) => {
+    default: async ({cookies, request}) => {
         const formData = Object.fromEntries(await request.formData());
-        const {email, password} = formData;
-
-        const {error, token} = await createUser(email, password);
-
+        const {username, password} = formData;
+        const {error, token} = await createUser(username, password, db);
         if (error) {
             console.log(error);
             return fail(500, {error});

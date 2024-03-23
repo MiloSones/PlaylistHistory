@@ -1,21 +1,21 @@
-import { db } from '$lib/db.js'
 import jwt from 'jsonwebtoken'
 import { JWT_ACCESS_SECRET } from '$env/static/private'
 import bcrypt from 'bcrypt';
+import db from '$lib/db';
 
-export async function createUser(email, password) {
+export async function createUser(username, password) {
     try {
-        const prepare_user = db.preppare("INSERT INTO users (username) (password) VALUES (?,?)");
-        const user = prepare_user.run(email,await bcrypt.hash(password,12));
+        const prepare_user = await db.prepare('INSERT INTO users (username, password) VALUES (?,?)');
+        const user = await prepare_user.run(username,await bcrypt.hash(password,12));
         const token = createJWT(user);
-
         return {token};
     }
     catch (error) {
+        console.log(error);
         return error
     }
 }
 
 function createJWT(user) {
-    return jwt.sign({id: user.user_id, email: user.email}, JWT_ACCESS_SECRET, {expiresIn: '1d'});
+    return jwt.sign({id: user.user_id, username: user.username}, JWT_ACCESS_SECRET, {expiresIn: '1d'});
 }
