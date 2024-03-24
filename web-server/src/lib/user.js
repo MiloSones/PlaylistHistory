@@ -5,8 +5,14 @@ import db from '$lib/db';
 
 export async function createUser(username, password) {
     try {
+        const user = {
+            username: username,
+            password: await bcrypt.hash(password,12)
+        };
+
         const prepare_user = await db.prepare('INSERT INTO users (username, password) VALUES (?,?)');
-        const user = await prepare_user.run(username,await bcrypt.hash(password,12));
+        const user_info = await prepare_user.run(user.username, user.password);
+        user.user_id = user_info.lastInsertRowid;
         const token = createJWT(user);
         return {token};
     }

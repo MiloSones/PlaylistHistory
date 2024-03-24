@@ -11,11 +11,9 @@ export const handle = async ({event, resolve}) => {
             const jwtUser = jwt.verify(token, JWT_ACCESS_SECRET);
             const prepare_user = await db.prepare('SELECT * FROM users WHERE user_id = ?');
         
-            const user = await prepare_user.get(jwtUser.user_id);
-            console.log(`userId: ${jwtUser.Id}`);
-            console.log(`user: ${user}`);
+            const user = await prepare_user.get(jwtUser.id);
             if (user) {
-                console.log(`user: ${Object.values(user)}`);
+                console.log(`user keys: ${Object.keys(user)}`);
                 event.locals.user = user;
             }
         } catch (error) {
