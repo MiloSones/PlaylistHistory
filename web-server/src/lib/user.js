@@ -31,12 +31,13 @@ export async function loginUser(username, password) {
         const user = await db.prepare("SELECT username, password, user_id FROM users WHERE username= ?").get(username);
         console.log(user);
         if (!user) {
+            console.log("No User")
             return {error: 'User not found'};
         }
 
         const validPassword = await bcrypt.compare(password, user.password);
 
-        if (!valid) {
+        if (!validPassword) {
             return {error: "Invalid password"};
         }
 

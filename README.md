@@ -1,6 +1,7 @@
 ### Todo
 ## Website
-- [ ] Add login function
+- [X] Add login function
+    - [ ] Give Error on failed attempt
 - [ ] Ensure only one user per username
 - [ ] Add remove user function
     - [ ] Remove user playlist data

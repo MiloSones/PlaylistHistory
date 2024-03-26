@@ -1,4 +1,4 @@
-import { redirect } from '@sveltejs/kit';
+import { fail, redirect } from '@sveltejs/kit';
 import { loginUser } from '$lib/user.js';
 import { setAuthToken } from '$lib/helpers.js';
 
@@ -7,7 +7,7 @@ export const actions = {
 		const formData = Object.fromEntries(await request.formData());
 		const {username, password} = formData;
 		const {error, token} = await loginUser(username, password);
-
+		console.log(error);
 		if (error) {
 			return fail(500, {error});
 		}

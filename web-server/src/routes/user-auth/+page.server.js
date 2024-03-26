@@ -1,3 +1,5 @@
+import { redirect } from '@sveltejs/kit';
+
 export async function load( {locals }) {
 
     const user = locals.user;
@@ -6,7 +8,7 @@ export async function load( {locals }) {
 
 export const actions = {
     logout: async ({cookies}) => {
-      cookies.delete("AuthorizationToken");
-      throw  redirect(302, "/user-auth");
+      cookies.delete("AuthorizationToken", {path: '/'});
+      throw redirect(302, "/user-auth");
     }
   }
