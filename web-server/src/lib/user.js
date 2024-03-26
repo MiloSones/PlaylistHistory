@@ -25,3 +25,25 @@ export async function createUser(username, password) {
 function createJWT(user) {
     return jwt.sign({id: user.user_id, username: user.username}, JWT_ACCESS_SECRET, {expiresIn: '1d'});
 }
+
+export async function loginUser(username, password) {
+    try {
+        const user = await db.prepare("SELECT username, password, user_id FROM users WHERE username= ?").get(username);
+        console.log(user);
+        if (!user) {
+            return {error: 'User not found'};
+        }
+
+        const validPassword = await bcrypt.compare(password, user.password);
+
+        if (!valid) {
+            return {error: "Invalid password"};
+        }
+
+        const token = createJWT(user);
+
+        return {token};
+    } catch (error) {
+        return error;
+    }
+}

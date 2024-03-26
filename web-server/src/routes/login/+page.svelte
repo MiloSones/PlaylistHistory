@@ -18,10 +18,10 @@
 	<form use:enhance method="POST">
 		<fieldset>
 			<input
-				name="email"
-				type="email"
+				name="username"
+				type="username"
 				required
-				placeholder="Email"
+				placeholder="Username"
 			/>
 		</fieldset>
 		<fieldset>
