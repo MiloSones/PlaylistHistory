@@ -6,6 +6,7 @@
 - [X] Add remove user function
     - [X] Remove user playlist data
     - [X] Remove user login data
+    - [ ] Add confirmation page
 - [ ] Link spotify Auth with an account
     - [ ] Require an account to link account
 - [ ] Style pages

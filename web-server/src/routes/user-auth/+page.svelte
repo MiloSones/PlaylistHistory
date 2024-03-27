@@ -12,6 +12,9 @@
     <form method="POST" action="?/delete">
         <button type="submit">Delete Account</button>
     </form>
+    <form method="POST" action="?/link">
+        <button type="submit">Link Spotify Account</button>
+    </form>
 {:else}
     <a href="/login">Login</a>
     <a href="/register">Register</a>
