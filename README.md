@@ -3,9 +3,11 @@
 - [X] Add login function
     - [ ] Give Error on failed attempt
 - [ ] Ensure only one user per username
-- [ ] Add remove user function
-    - [ ] Remove user playlist data
-    - [ ] Remove user login data
+- [X] Add remove user function
+    - [X] Remove user playlist data
+    - [X] Remove user login data
+- [ ] Link spotify Auth with an account
+    - [ ] Require an account to link account
 - [ ] Style pages
 - [ ] 
 
