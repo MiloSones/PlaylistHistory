@@ -13,7 +13,6 @@ export const handle = async ({event, resolve}) => {
         
             const user = await prepare_user.get(jwtUser.id);
             if (user) {
-                console.log(`user keys: ${Object.keys(user)}`);
                 event.locals.user = user;
             }
         } catch (error) {

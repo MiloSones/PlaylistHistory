@@ -9,6 +9,9 @@
     <form method="POST" action="?/logout">
         <button type="submit">Log Out</button>
     </form>
+    <form method="POST" action="?/delete">
+        <button type="submit">Delete Account</button>
+    </form>
 {:else}
     <a href="/login">Login</a>
     <a href="/register">Register</a>

@@ -48,3 +48,7 @@ export async function loginUser(username, password) {
         return error;
     }
 }
+
+export async function deleteUser(username) {
+    
+}
